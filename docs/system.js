@@ -45,7 +45,6 @@ fetch('data/'+waterSystemId+'.json')
   ${Array.from(uniqueAnalyteMap).map((analyte) => {
     return `
       <h2 class="erf-align">${analyte[0]}</h2>
-      <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
       <div class="violaters system-specific">
         <span class="head">Violation Begin Date</span>
         <span class="head">Violation End Date</span>
