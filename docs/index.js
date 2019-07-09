@@ -52,12 +52,9 @@ function resetElements(currentName, currentIndex) {
 }
 
 
-window.onload = function () {
-
   document.getElementById("export-click").onclick=myClickHandler;
 
    function myClickHandler() {
      alert("The document was clicked!");
      exportList();
    }
-}
