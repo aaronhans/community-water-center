@@ -50,3 +50,14 @@ function resetElements(currentName, currentIndex) {
   document.querySelector('select[name="analyte"]').selectedIndex = 0;
   document.querySelector('select[name="'+currentName+'"]').selectedIndex = currentIndex;
 }
+
+
+window.onload = function () {
+
+  document.getElementById("export-click").onclick=myClickHandler;
+
+   function myClickHandler() {
+     alert("The document was clicked!");
+     exportList();
+   }
+}
