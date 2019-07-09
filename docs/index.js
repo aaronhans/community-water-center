@@ -2,6 +2,7 @@ import { summary } from './template.js';
 import { listViol } from './listViol.js';
 import { selectors } from './menus.js';
 import { uniqueMaps } from './uniqueMaps.js';
+import { exportList } from './exportList.js';
 
 fetch('data/violations.json')
 .then(function(response) {
@@ -24,7 +25,7 @@ fetch('data/violations.json')
     selectInput.addEventListener('change', function(event) {
       let currentIndex = document.querySelector('select[name="'+this.name+'"]').selectedIndex;
       let mapKey = document.querySelector('select[name="'+this.name+'"]').options[currentIndex].value;
-      
+
       if(mapKey == '') {
         // if you changed a selector back to the default value, reset summary view to full state
         document.querySelector('.summary').innerHTML = summary(myJson)
