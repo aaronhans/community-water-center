@@ -13,7 +13,7 @@ export function listViol(json) {
   })
 
   return `
-    <div class="violaters">
+    <div class="violaters">      
       <span class="head">Name</span>
       <span class="head">ID</span>
       <span class="head">City</span>
@@ -30,16 +30,4 @@ export function listViol(json) {
     }).join(' ')}
     </div>
   `
-
-}
-
-export function exportList(json) {
-const rows = [
-    ["name1", "city1", "some other info"],
-    ["name2", "city2", "more info"]];
-
-let csvContent = "data:text/csv;charset=utf-8,"
-    + rows.map(e => e.join(",")).join("\n");
-var encodedUri = encodeURI(csvContent);
-window.open(encodedUri);
 }
