@@ -1,6 +1,10 @@
 export function exportList(data) {
 
-alert(data.forEach( (item) => { console.log(item.textContent) }));
+console.log(data.forEach( (item) => {console.log(item.textContent)})); 
+
+//.forEach( (item) => {item.textContent}))
+
+
 
 
 const rows = [

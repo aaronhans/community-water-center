@@ -41,9 +41,7 @@ fetch('data/violations.json')
   })
 
   document.getElementById("export-list").addEventListener("click", function() {
-    exportList(document.querySelectorAll('.violating-systems span').forEach( (item) => {console.log(item.textContent);
-//worked:     exportList(document.querySelectorAll('.violating-systems span').forEach( (item) => {console.log(item.textContent);
-}));
+    exportList(document.querySelectorAll('.violating-systems span'));
 
 
   })
