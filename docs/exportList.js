@@ -1,21 +1,33 @@
 export function exportList(data) {
 
-alert(data);
+alert(data.forEach( (item) => { console.log(item.textContent) }));
 
 
 const rows = [
-      ["Water System Name", "ID", "City", "County", "Zip"],
-      [data[0], data[1][0],data.dataset['City']]];
-//${item[1][0].WATER_SYSTEM_NUMBER}
+       ["Water System Name", "ID", "City", "County", "Zip"]];
 
+       for (var i = 0; i < data.length; i++)
+         rows[i] += ",NewCol" + (i + 1);
+       console.log(rows);
 
-let csvContent = "data:text/csv;charset=utf-8,"
-    + rows.map(e => e.join(",")).join("\n");
+     }
 
-
-var encodedUri = encodeURI(csvContent);
-     window.open(encodedUri);
-   }
+// var lineArray = [];
+//       data.forEach(function (infoArray, index) {
+//           var line = infoArray.join(",");
+//           lineArray.push(index == 0 ? "data:text/csv;charset=utf-8," + line : line);
+//       });
+//
+// var csvContent = lineArray.join("\n");
+//
+// //
+// // let csvContent = "data:text/csv;charset=utf-8,"
+// //     + rows.map(e => e.join(",")).join("\n");
+//
+//
+// var encodedUri = encodeURI(csvContent);
+//      window.open(encodedUri);
+//    }
 
 
 
