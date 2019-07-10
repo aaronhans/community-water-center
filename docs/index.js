@@ -39,7 +39,9 @@ fetch('data/violations.json')
       resetElements(this.name,currentIndex);
     })
   })
-});
+
+  document.getElementById("export-list").addEventListener("click", function() { exportList(document.querySelector('.violating-systems .span').innerHTML) });
+  });
 
 function resetElements(currentName, currentIndex) {
   // revert everything not touched back to default
@@ -50,11 +52,3 @@ function resetElements(currentName, currentIndex) {
   document.querySelector('select[name="analyte"]').selectedIndex = 0;
   document.querySelector('select[name="'+currentName+'"]').selectedIndex = currentIndex;
 }
-
-
-  document.getElementById("export-click").onclick=myClickHandler;
-
-   function myClickHandler() {
-     alert("The document was clicked!");
-     exportList();
-   }
