@@ -1,9 +1,6 @@
 export function exportList(data) {
 
-data.forEach( (item) => {console.log(item.textContent)});
-
-//.forEach( (item) => {item.textContent}))
-
+data.forEach( (item) => { console.log(item.textContent) });
 
 
 
@@ -11,10 +8,19 @@ const rows = [
        ["Water System Name", "ID", "City", "County", "Zip"]];
 
        for (var i = 0; i < data.length; i++)
-         rows[i] += data.forEach( (item) => {item.textContent.toString}) + (i + 1);
+         rows.push(data[i].textContent);
        console.log(rows);
 
      }
+// foreach style
+// const apps = ['WhatsApp', 'Instagram', 'Facebook'];
+// const playStore = [];
+//
+// apps.forEach(function(item){
+//   playStore.push(item)
+// });
+//
+// console.log(playStore);
 
 // var lineArray = [];
 //       data.forEach(function (infoArray, index) {
