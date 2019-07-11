@@ -4,14 +4,34 @@ data.forEach( (item) => { console.log(item.textContent) });
 
 
 
-const rows = [
-       ["Water System Name", "ID", "City", "County", "Zip"]];
+const rows = []
+       //["Water System Name", "ID", "City", "County", "Zip"];
 
-       for (var i = 0; i < data.length; i++)
-         rows.push(data[i].textContent);
+       for (var i = 0; i < data.length; i++){
+        if (rows.length % 5 == 0)
+        { rows.push(data[i].textContent + "\n"); }
+
+         else { rows.push(data[i].textContent);}
+
+}
+
+
+
+
        console.log(rows);
 
+       var csvContent ="data:text/csv;charset=utf-8," + rows;
+
+       // let csvContent = "data:text/csv;charset=utf-8,"
+       // + rows.map(e => e.join(",")).join("\n");
+       //
+       //
+       var encodedUri = encodeURI(csvContent);
+            window.open(encodedUri);
      }
+
+
+
 // foreach style
 // const apps = ['WhatsApp', 'Instagram', 'Facebook'];
 // const playStore = [];
