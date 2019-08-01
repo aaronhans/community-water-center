@@ -7,14 +7,23 @@ console.log(data.length)
 
 let data_arr = Array.prototype.slice.call(data);
 
+const every_nth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 
 const rows = []
        //["Water System Name", "ID", "City", "County", "Zip"];
 
-       for (var i = 0; i < data.length; i++){
-
-          //rows.push(data[i].textContent + "\n");
+       for (var i = 0; i < data_arr.length; i++){
+        if (i > 0 && i % 4 == 0)
+        {
+          console.log(data_arr[i].textContent);//rows.push(data[i].textContent + "\n");
+          rows.push(data_arr[i].textContent + "\r\n");
+        }
+        else {
           rows.push(data_arr[i].textContent);
+
+        }
+
+console.log(rows)
 
 
 
@@ -34,4 +43,5 @@ link.click();
 
 
 
+        //let csvContent = "data:text/csv;charset=utf-8,"
 }
