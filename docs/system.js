@@ -46,17 +46,26 @@ fetch('data/'+waterSystemId+'.json')
   ${Array.from(uniqueAnalyteMap).map((analyte) => {
     return `
       <h2 class="erf-align">${analyte[0]}</h2>
+        <div align="right">
+        <button id="export-list" >Export</button>
+        </div>
       <div class="violaters system-specific">
         <span class="head">Violation Begin Date</span>
         <span class="head">Violation End Date</span>
         <span class="head">Measured Level</span>
         <span class="head">Allowed Level</span>
+        <span class="head">Absolute Exceedance</span>
+        <span class="head">% Exceedance</span>
         ${analyte[1].map((item) => {
+          var absexc = item.RESULT.split(" ")[0] - item.MCL.split(" ")[0];
+          var pctexc = absexc/item.MCL.split(" ")[0]*100;
           return `
             <span>${item.VIOL_BEGIN_DATE}</span>
             <span>${item.VIOL_END_DATE}</span>
             <span>${item.RESULT}</span>
             <span>${item.MCL}</span>
+            <span>${absexc.toFixed(3) + " " + item.MCL.split(" ")[1]}</span>
+            <span>${pctexc.toFixed(2)}</span>
           `;
         }).join(' ')}
       </div>
