@@ -1,4 +1,5 @@
 import { updateList } from  './updatelist.js';
+import { exportList } from './exportList.js';
 
 let waterSystemId = window.location.search.replace('?id=','');
 
@@ -64,6 +65,12 @@ fetch('data/'+waterSystemId+'.json')
   `;
 
   document.querySelector('.system-history').innerHTML = output;
+
+  document.getElementById("export-list").addEventListener("click", function() {
+    exportList(document.querySelectorAll(".violaters > span"), document.querySelectorAll(".violaters > span.head").length);
+
+
+  })
 })
 /*
 ANALYTE_NAME: "1,2,3-TRICHLOROPROPANE"
