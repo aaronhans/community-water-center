@@ -6,11 +6,6 @@ console.log(data)
 
 console.log("Input Variable is of type:", typeof(data))
 console.log("Length is:", rowlength)
-//TODO:
-
-// Escape any "," in the input
-
-
 
 
 const rows = []
@@ -19,17 +14,19 @@ const rows = []
 
        for (var i = 0; i < data.length; i++)
        {
-         // Check if it's the first in the row
-        if (i > 0 && i % rowlength == 0)
-        {
-          rows.push("\n" + data[i].textContent); // Put a line break right before the next element
-        }
+
+
+         if (i > 0 && i % rowlength == 0)
+          {
+          rows.push("\n" + '"' + data[i].textContent + '"'); // Put a line break right before the first element of the row except the first
+          }
+
         else {
-          rows.push(data[i].textContent);
+          rows.push('"' + data[i].textContent + '"');
+
+            }
 
         }
-
-      }
 
 
 //var csvContent="application/vnd.ms-excel;charset=us-ascii," + rows;
@@ -40,9 +37,7 @@ console.log(csvContent.length)
 console.log(typeof(csvContent));
 
 // Iterate through the string and where there is a comma replace with ","
-if (csvContent.indexOf(',') > -1)
-{ console.log(csvContent.indexOf(','))
-}
+
 
 
 download("mydata.csv", csvContent);
@@ -58,7 +53,7 @@ download("mydata.csv", csvContent);
 
 function download(filename, text) {
     var pom = document.createElement('a');
-    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(text));
     pom.setAttribute('download', filename);
 
     if (document.createEvent) {
@@ -69,4 +64,8 @@ function download(filename, text) {
     else {
         pom.click();
     }
+}
+
+String.prototype.replaceAt=function(index, replacement) {
+return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
