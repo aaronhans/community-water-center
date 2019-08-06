@@ -41,7 +41,7 @@ fetch('data/violations.json')
   })
 
   document.getElementById("export-list").addEventListener("click", function() {
-    exportList(document.querySelectorAll('.violating-systems span'));
+    exportList(document.querySelectorAll('.violating-systems span'), document.querySelectorAll('.violating-systems span.head').length);
 
 
   })

@@ -1,28 +1,27 @@
-export function exportList(data) {
+export function exportList(data, rowlength) {
 
 //data.forEach( (item) => { console.log(item.textContent) });
 console.log(data.length)
-
+console.log(rowlength)
+console.log("Input Variable is of type:", typeof(data))
+console.log("Length is:", rowlength)
 //TODO:
 
-// Can you count how many columns and rows, and stitch together accordingly
+// Count number of span.head, get those indices to know the number of rows, to add a linebreak after each
 // Escape any "," in the input
 
-console.log("Input Variable is of type:", typeof(data));
-console.log("Length is:", data.length);
+
 
 
 const rows = []
        //["Water System Name", "ID", "City", "County", "Zip"];
 
-console.log(typeof(rows));
-
 
        for (var i = 0; i < data.length; i++){
-        if (i > 0 && i % 5 == 4)
+         // Check if it's the first in the row
+        if (i > 0 && i % rowlength == 0)
         {
-          console.log(data[i].textContent);
-          if (i+1){rows.push("\r\n" + data[i].textContent);} // Put a line break right before the next element
+          if (i+1){rows.push("\n" + data[i].textContent);} // Put a line break right before the next element
         }
         else {
           rows.push(data[i].textContent);
@@ -34,8 +33,8 @@ console.log(typeof(rows));
 
 }
 
-var csvContent="application/vnd.ms-excel;charset=us-ascii," + rows;
-
+//var csvContent="application/vnd.ms-excel;charset=us-ascii," + rows;
+var csvContent = "data:text/csv;charset=utf-8,%EF%BB%BF" + rows;
 console.log(csvContent);
 console.log(typeof(csvContent));
 
